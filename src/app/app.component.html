@@ -4,8 +4,15 @@
   <ul id="users">
     @for (user of users; track user.id) {
       <li>
-        <app-user [avatar]="user.avatar" [name]="user.name"/>
+        <app-user
+          [id]="user.id"
+          [avatar]="user.avatar"
+          [name]="user.name"
+          (select)="onSelectUser($event)"
+        />
       </li>
     }
   </ul>
+
+  <app-tasks [name]="selectedUser.name"/>
 </main>
