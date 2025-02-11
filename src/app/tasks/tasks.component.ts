@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {TaskComponent} from './task/task.component';
 import {DUMMY_TASKS} from '../data/dummy-tasks-data';
-import {Task} from '../model/AppGenericModels';
+import {Task} from '../model/app.model';
 
 @Component({
   selector: 'app-tasks',
