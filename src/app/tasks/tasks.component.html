@@ -1,8 +1,6 @@
 @if (isAddingTask) {
-  <app-new-task [userName]="userName"/>
+  <app-new-task [userId]="userId" (cancel)="onCancelAddTask()"/>
 }
-
-
 
 <section id="tasks">
   <header>
@@ -19,8 +17,6 @@
       </li>
     }
   </ul>
-
-
 </section>
 
 
