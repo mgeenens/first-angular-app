@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {User} from '../model/app.model';
 
 @Component({
@@ -10,8 +10,10 @@ import {User} from '../model/app.model';
 })
 export class UserComponent {
   @Input({required: true}) user!: User;
+  @Input({required: true}) selected!: boolean;
 
   @Output() select = new EventEmitter<string>();
+
   // select = output<string>();
 
   get imagePath() {
