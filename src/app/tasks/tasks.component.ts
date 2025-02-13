@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {TaskComponent} from './task/task.component';
 import {DUMMY_TASKS} from '../data/dummy-tasks-data';
 import {Task} from '../model/app.model';
@@ -22,7 +22,6 @@ export class TasksComponent {
   tasks: Task[] = DUMMY_TASKS;
 
   get selectedUserTasks() {
-    this.isAddingTask = false;
     return this.tasks.filter(task => task.userId === this.userId);
   }
 
@@ -35,6 +34,11 @@ export class TasksComponent {
   }
 
   onCancelAddTask() {
+    this.isAddingTask = false;
+  }
+
+  onAddTask(newTask: Task) {
+    this.tasks.push(newTask);
     this.isAddingTask = false;
   }
 
