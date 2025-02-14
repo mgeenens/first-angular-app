@@ -1,8 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {TaskComponent} from './task/task.component';
-import {DUMMY_TASKS} from '../data/dummy-tasks-data';
 import {Task} from '../model/app.model';
 import {NewTaskComponent} from './new-task/new-task.component';
+import {TasksService} from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -19,26 +19,22 @@ export class TasksComponent {
   @Input({required: true}) userName!: string;
   isAddingTask: boolean = false;
 
-  tasks: Task[] = DUMMY_TASKS;
+  constructor(private readonly tasksService: TasksService) {
+  }
 
   get selectedUserTasks() {
-    return this.tasks.filter(task => task.userId === this.userId);
+    return this.tasksService.getUserTasks(this.userId);
   }
 
   onCompleteTask(id: string) {
-    this.tasks = this.tasks.filter(task => task.id !== id);
+    return this.tasksService.removeTask(id);
   }
 
   onStartAddTask() {
     this.isAddingTask = true;
   }
 
-  onCancelAddTask() {
-    this.isAddingTask = false;
-  }
-
-  onAddTask(newTask: Task) {
-    this.tasks.push(newTask);
+  onCloseAddTask() {
     this.isAddingTask = false;
   }
 
