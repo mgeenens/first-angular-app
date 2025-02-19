@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {AppComponent} from './app.component';
 import {BrowserModule} from '@angular/platform-browser';
 
@@ -8,9 +7,9 @@ import {BrowserModule} from '@angular/platform-browser';
   declarations: [AppComponent],
   bootstrap: [AppComponent],
   imports: [
-    CommonModule, BrowserModule
+    BrowserModule
   ],
-  exports:[AppComponent]
+  exports: [AppComponent]
 })
 export class AppModule {
 }
