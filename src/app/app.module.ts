@@ -11,18 +11,19 @@ import {InvestmentResultsComponent} from './investment-results/investment-result
   declarations: [
     AppComponent,
     HeaderComponent,
-    UserInputComponent
+    UserInputComponent,
+    InvestmentResultsComponent
   ],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
-    FormsModule,
-    InvestmentResultsComponent
+    FormsModule
   ],
   exports: [
     AppComponent,
     HeaderComponent,
-    UserInputComponent
+    UserInputComponent,
+    InvestmentResultsComponent
   ]
 })
 export class AppModule {

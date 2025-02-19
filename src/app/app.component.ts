@@ -8,10 +8,12 @@ import {InvestmentResultService} from './service/investment-result.service';
 })
 export class AppComponent {
 
+  resultsData?: InvestmentResult[];
+
   constructor(private readonly investmentResultService: InvestmentResultService) {
   }
 
-  onCalculate(data: InvestmentData): InvestmentResult[] {
-    return this.investmentResultService.calculateInvestmentResults(data)
+  onCalculate(data: InvestmentData) {
+    this.resultsData = this.investmentResultService.calculateInvestmentResults(data);
   }
 }
