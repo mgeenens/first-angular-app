@@ -2,20 +2,27 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {HeaderComponent} from './header/header.component';
+import {UserInputComponent} from './user-input/user-input.component';
+import {FormsModule} from '@angular/forms';
+import {InvestmentResultsComponent} from './investment-results/investment-results.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserInputComponent
   ],
   bootstrap: [AppComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    InvestmentResultsComponent
   ],
   exports: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserInputComponent
   ]
 })
 export class AppModule {

@@ -5,7 +5,7 @@ import {InvestmentData, InvestmentResult} from '../model/app.model';
 export class InvestmentResultService {
 
 
-  private calculateInvestmentResults(data: InvestmentData) {
+  calculateInvestmentResults(data: InvestmentData) {
     const annualData: InvestmentResult[] = [];
     let investmentValue = data.initialInvestment;
 
