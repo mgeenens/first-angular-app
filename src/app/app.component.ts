@@ -5,6 +5,7 @@ import {TrafficComponent} from './dashboard/traffic/traffic.component';
 import {SupportTicketComponent} from './dashboard/support-ticket/support-ticket.component';
 import {TrafficData} from './model/traffic.model';
 import {DUMMY_TRAFFIC_DATA} from './data/dummy-traffic-data';
+import {DashboardItemComponent} from './dashboard/dashboard-item/dashboard-item.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import {DUMMY_TRAFFIC_DATA} from './data/dummy-traffic-data';
     HeaderComponent,
     ServerStatusComponent,
     TrafficComponent,
-    SupportTicketComponent
+    SupportTicketComponent,
+    DashboardItemComponent
   ]
 })
 export class AppComponent {
