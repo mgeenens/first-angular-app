@@ -9,10 +9,14 @@ import {InvestmentData} from '../model/app.model';
 export class UserInputComponent {
   calculate = output<InvestmentData>();
 
-  initialInvestmentInput = '0';
-  annualInvestmentInput = '0';
-  expectedReturnInput = '5';
-  durationInput = '10';
+  initialInvestmentInput = '';
+  annualInvestmentInput = '';
+  expectedReturnInput = '';
+  durationInput = '';
+
+  constructor() {
+    this.resetDefaultValues();
+  }
 
   onSubmit() {
     const data: InvestmentData = {
@@ -24,5 +28,13 @@ export class UserInputComponent {
 
     console.log(data);
     this.calculate.emit(data);
+    this.resetDefaultValues();
+  }
+
+  resetDefaultValues() {
+    this.initialInvestmentInput = '0';
+    this.annualInvestmentInput = '0';
+    this.expectedReturnInput = '5';
+    this.durationInput = '10';
   }
 }
