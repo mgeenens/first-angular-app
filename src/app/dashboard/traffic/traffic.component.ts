@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {TrafficData} from '../../model/traffic.model';
 
 @Component({
   selector: 'app-traffic',
@@ -8,6 +9,6 @@ import {Component, Input} from '@angular/core';
   styleUrl: './traffic.component.css'
 })
 export class TrafficComponent {
-  @Input({ required: true}) dummyTrafficData!: {id:string; value:number}[];
+  @Input({ required: true}) dummyTrafficData!: TrafficData[];
   @Input({ required: true}) maxTraffic!: number;
 }
