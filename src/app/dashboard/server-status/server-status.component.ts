@@ -12,4 +12,5 @@ import {Component, Input} from '@angular/core';
 })
 export class ServerStatusComponent {
   @Input({ required: true}) currentStatus!: string;
+
 }
