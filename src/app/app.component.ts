@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HeaderComponent} from './header/header.component';
 import {ServerStatusComponent} from './dashboard/server-status/server-status.component';
 import {TrafficComponent} from './dashboard/traffic/traffic.component';
@@ -18,10 +18,12 @@ import {DashboardItemComponent} from './dashboard/dashboard-item/dashboard-item.
     DashboardItemComponent
   ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   dummyTrafficData = DUMMY_TRAFFIC_DATA;
   maxTraffic = Math.max(...this.dummyTrafficData.map((data) => data.value));
   currentStatus: 'online' | 'offline' | 'unknown' = 'online';
+
+  private readonly interval?: ReturnType<typeof setInterval>;
 
   ngOnInit() {
     setInterval(() => {
@@ -34,6 +36,11 @@ export class AppComponent implements OnInit {
         this.currentStatus = 'unknown'
       }
     }, 5000);
+  }
+
+  ngOnDestroy(): void {
+    clearTimeout(this.interval);
+
   }
 
 }
