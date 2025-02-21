@@ -7,7 +7,10 @@ import {ServerStatusComponent} from "../server-status/server-status.component";
   imports: [
   ],
   templateUrl: './dashboard-item.component.html',
-  styleUrl: './dashboard-item.component.css'
+  styleUrl: './dashboard-item.component.css',
+  // host: {
+  //   class:'dashboard-item'
+  // }
 })
 export class DashboardItemComponent {
   @Input({required: true}) imgData!: { src: string; alt: string };

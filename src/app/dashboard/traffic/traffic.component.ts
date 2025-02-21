@@ -6,7 +6,10 @@ import {TrafficData} from '../../model/traffic.model';
   standalone: true,
   imports: [],
   templateUrl: './traffic.component.html',
-  styleUrl: './traffic.component.css'
+  styleUrl: './traffic.component.css',
+  host:{
+    id:'traffic'
+  }
 })
 export class TrafficComponent {
   @Input({ required: true}) dummyTrafficData!: TrafficData[];
