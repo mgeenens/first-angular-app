@@ -10,6 +10,6 @@ import {ServerStatusComponent} from "../server-status/server-status.component";
   styleUrl: './dashboard-item.component.css'
 })
 export class DashboardItemComponent {
-  @Input({required: true}) image!: { src: string; alt: string };
+  @Input({required: true}) imgData!: { src: string; alt: string };
   @Input({required: true}) title !: string;
 }

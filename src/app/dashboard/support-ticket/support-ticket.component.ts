@@ -1,9 +1,12 @@
 import {Component, Input} from '@angular/core';
+import {NewTicketComponent} from './new-ticket/new-ticket.component';
 
 @Component({
   selector: 'app-support-ticket',
   standalone: true,
-  imports: [],
+  imports: [
+    NewTicketComponent
+  ],
   templateUrl: './support-ticket.component.html',
   styleUrl: './support-ticket.component.css'
 })
