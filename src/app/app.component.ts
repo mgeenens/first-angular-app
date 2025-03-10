@@ -40,7 +40,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     clearTimeout(this.interval);
-
   }
 
 }
