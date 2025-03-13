@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostBinding, inject, input, ViewEncapsulation} from '@angular/core';
+import {Component, contentChild, ContentChild, ElementRef, inject, input, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -15,6 +15,8 @@ import {Component, ElementRef, HostBinding, inject, input, ViewEncapsulation} fr
 export class ControlComponent {
 
   // @HostBinding('class') className = 'control';
+  // @ContentChild('input') private readonly control?: ElementRef<HTMLInputElement | HTMLTextAreaElement>;
+  private readonly control = contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
 
   label = input<string>();
   private readonly el = inject(ElementRef);
@@ -22,6 +24,7 @@ export class ControlComponent {
   onClick() {
     console.log("Clicked !");
     console.log(this.el);
+    console.log(this.control());
   }
 
 }
