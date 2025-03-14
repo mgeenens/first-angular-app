@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, effect, Input, WritableSignal} from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -11,6 +11,12 @@ import {Component, Input} from '@angular/core';
   }
 })
 export class ServerStatusComponent {
-  @Input({ required: true}) currentStatus!: string;
+  @Input({ required: true}) currentStatus!: WritableSignal<'online' | 'offline' | 'unknown'>;
 
+  constructor() {
+    // Executes code when signal value changes
+    effect(() => {
+      console.log(this.currentStatus());
+    });
+  }
 }

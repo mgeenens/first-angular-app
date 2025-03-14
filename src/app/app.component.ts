@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, signal} from '@angular/core';
 import {HeaderComponent} from './header/header.component';
 import {ServerStatusComponent} from './dashboard/server-status/server-status.component';
 import {TrafficComponent} from './dashboard/traffic/traffic.component';
@@ -21,7 +21,7 @@ import {DashboardItemComponent} from './dashboard/dashboard-item/dashboard-item.
 export class AppComponent implements OnInit, OnDestroy {
   dummyTrafficData = DUMMY_TRAFFIC_DATA;
   maxTraffic = Math.max(...this.dummyTrafficData.map((data) => data.value));
-  currentStatus: 'online' | 'offline' | 'unknown' = 'online';
+  currentStatus = signal<'online' | 'offline' | 'unknown'>('offline');
 
   private readonly interval?: ReturnType<typeof setInterval>;
 
@@ -29,11 +29,11 @@ export class AppComponent implements OnInit, OnDestroy {
     setInterval(() => {
       const rnd = Math.random();
       if (rnd < 0.5) {
-        this.currentStatus = 'online';
+        this.currentStatus.set('online');
       } else if (rnd < 0.85) {
-        this.currentStatus = 'offline';
+        this.currentStatus.set('offline');
       } else {
-        this.currentStatus = 'unknown'
+        this.currentStatus.set('unknown');
       }
     }, 5000);
   }
