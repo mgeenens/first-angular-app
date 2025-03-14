@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, viewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, output, Output, viewChild} from '@angular/core';
 import {ButtonComponent} from '../../../shared/button/button.component';
 import {ControlComponent} from '../../../shared/control/control.component';
 import {FormsModule} from '@angular/forms';
@@ -18,6 +18,8 @@ export class NewTicketComponent implements AfterViewInit {
   titleLabel: string = 'Title';
   textareaLabel: string = 'Request';
 
+  add = output<{ title: string, text: string }>();
+
   // @ViewChild('form') form?: ElementRef<HTMLFormElement>;
   private readonly form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 
@@ -27,9 +29,7 @@ export class NewTicketComponent implements AfterViewInit {
   }
 
   onSubmit(title: string, text: string) {
-    console.log("ENTERED TITLE :" + title);
-    console.log("ENTERED TEXT :" + text);
-    // this.form?.nativeElement.reset();
+    this.add.emit({title: title, text: text});
     this.form().nativeElement.reset();
   }
 
