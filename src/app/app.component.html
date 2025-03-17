@@ -20,7 +20,19 @@
     >
       <app-tickets/>
     </app-dashboard-item>
+  </div>
 
-
+  <div id="rectangle">
+    <div id="inputs">
+      <p>
+        <label>Width</label>
+        <input type="number" step="1.0" [(ngModel)]="rectSize.width"/>
+      </p>
+      <p>
+        <label>Height</label>
+        <input type="number" step="1.0" [(ngModel)]="rectSize.height"/>
+      </p>
+    </div>
+    <app-rect [(size)]="rectSize"/>
   </div>
 </main>

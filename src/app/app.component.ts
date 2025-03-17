@@ -5,6 +5,8 @@ import {TrafficComponent} from './dashboard/traffic/traffic.component';
 import {TicketsComponent} from './dashboard/tickets/tickets.component';
 import {DUMMY_TRAFFIC_DATA} from './data/dummy-traffic-data';
 import {DashboardItemComponent} from './dashboard/dashboard-item/dashboard-item.component';
+import {RectComponent} from './rect/rect.component';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +17,20 @@ import {DashboardItemComponent} from './dashboard/dashboard-item/dashboard-item.
     ServerStatusComponent,
     TrafficComponent,
     TicketsComponent,
-    DashboardItemComponent
+    DashboardItemComponent,
+    RectComponent,
+    FormsModule
   ]
 })
 export class AppComponent implements OnInit, OnDestroy {
   dummyTrafficData = DUMMY_TRAFFIC_DATA;
   maxTraffic = Math.max(...this.dummyTrafficData.map((data) => data.value));
   currentStatus = signal<'online' | 'offline' | 'unknown'>('offline');
+
+  rectSize = {
+    width: 100,
+    height: 100
+  };
 
   private readonly interval?: ReturnType<typeof setInterval>;
 
